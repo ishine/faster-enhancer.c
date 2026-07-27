@@ -199,8 +199,6 @@ docs/                 architecture, optimization notes
   methodology. It also separates numbers backed by deposited artifacts from
   numbers that exist only as prose in that document.
 
-Both documents are in Korean.
-
 ## Acknowledgements
 
 The model, its architecture and its weights are FastEnhancer, by Sunghwan Ahn
