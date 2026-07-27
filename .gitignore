@@ -53,3 +53,53 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Build directory (single canonical location, plus per-config sibling dirs
+# like build_x86/ for cross-compile and build_prof/ for FE_ENABLE_PROFILE).
+build/
+build_*/
+
+# Test clips are fetched by testaudio/fetch.sh, not redistributed here.
+# Neither the downloads nor the derived .f32 / WAV outputs are committed.
+testaudio/*.opus
+testaudio/*.f32
+testaudio/output/
+*.wav
+
+# MSVC project artifacts (cmake accidentally invoked from project root
+# generates these here instead of in build/). The canonical build dir is
+# build/ — these never belong at repo root.
+*.vcxproj
+*.vcxproj.filters
+*.sln
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+x64/
+/fe.dir/
+
+# Profiling artifacts: VTune result dirs, cachegrind dumps, ad-hoc bench
+# logs. Workspace-local, never committed.
+/profile/
+cachegrind.out.*
+vtune_*/
+vtune_*.log
+vtune_*.err
+bench_*.err
+
+# External reference repo (FastEnhancer PyTorch source + ONNX). Kept
+# locally for ONNX-reference measurement; not vendored in our repo.
+/fastenhancer/
+/fastenhancer-orig/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Evaluation corpora are fetched, not vendored. VoiceBank-DEMAND is CC BY 4.0
+# and could legally be redistributed, but it is 310 MB; experiments/vbdmd/
+# carries the per-utterance results and the commands to reproduce them.
+/data/
+
+# ablation harnesses redirect stdout; the files are always empty
+*.stdout
