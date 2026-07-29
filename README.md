@@ -7,6 +7,9 @@ inference framework, no heap allocation after startup, and no retraining.
 It runs the [published FastEnhancer weights](https://github.com/aask1357/fastenhancer)
 unchanged. The architecture is untouched; only the runtime is specialized.
 
+The design and the measurements behind the numbers below are written up in
+[arXiv:2607.25350](https://arxiv.org/abs/2607.25350).
+
 ```
 0.069 real-time factor   on one Apple M2 core      (I8MM, racing)
 0.096                    on a Galaxy S23+          (Snapdragon 8 Gen 2)
@@ -198,6 +201,24 @@ docs/                 architecture, optimization notes
   six kernel tiers, fp16 cross-stage storage, op fusion, and measurement
   methodology. It also separates numbers backed by deposited artifacts from
   numbers that exist only as prose in that document.
+
+## Citation
+
+```bibtex
+@misc{kim2026fasterenhancerc,
+  title         = {faster-enhancer.c: A Dependency-Free int8 Runtime for
+                   Streaming Speech Enhancement on Commodity CPUs},
+  author        = {Gyeongmin Kim},
+  year          = {2026},
+  eprint        = {2607.25350},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.AS},
+  url           = {https://arxiv.org/abs/2607.25350}
+}
+```
+
+If you are citing the model rather than this runtime, cite FastEnhancer
+instead — see Acknowledgements.
 
 ## Acknowledgements
 
